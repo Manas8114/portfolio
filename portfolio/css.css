@@ -1,0 +1,109 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+/* Reset some default styles to ensure consistency */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Set a background color and font styles */
+body {
+  background-color: #41a9f9;
+  font-family: Arial, sans-serif;
+}
+
+/* Create a container for the entire portfolio */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style the header section */
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+header h1 {
+  font-size: 36px;
+}
+
+/* Style the navigation menu */
+nav {
+  background-color: #333;
+}
+
+nav ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+nav li {
+  margin: 0 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Style the main content section */
+.main {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* Style individual portfolio items or projects */
+.portfolio-item {
+  border: 1px solid #000000;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+/* Style the footer section */
+footer {
+  background-color: #333;
+  color: #c83030;
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+/* Add responsive design for smaller screens */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 24px;
+  }
+
+  nav ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  nav li {
+    margin: 10px 0;
+  }
+}

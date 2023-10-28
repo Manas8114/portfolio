@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Manas Sharma</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Added a background color as a fallback for when the video doesn't load */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Send the video to the background */
+        }
+
+        #content {
+            position: relative;
+            z-index: 1; /* Bring the content to the foreground */
+        }
+    </style>
+</head>
+<body>
+    <!-- Added a poster attribute to display an image while the video is loading -->
+    <video autoplay muted loop id="background-video" poster="poster.jpg">
+        <source src="C:\Users\msgok\Downloads\Untitled video - Made with Clipchamp.mp4" type="video/mp4">
+    </video>
+
+    <div id="content">
+        <header>
+            <h1>Manas Sharma</h1>
+            <!-- Added an alt attribute for better accessibility -->
+            <img src="C:\Users\msgok\OneDrive\Desktop\Me\pic.jpg" alt="Manas Sharma" width="250" height="200">
+        </header>
+
+        <nav>
+            <ul>
+                <!-- Added title attributes for better accessibility -->
+                <li><a href="index.html" title="About Me">About</a></li>
+                <li><a href="project.html" title="My Projects">Project</a></li>
+                <li><a href="skills.html" title="My Skills">Skills</a></li>
+                <li><a href="contact.html" title="Contact Me">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            <section id="about" class="main">
+                <h2>About Me</h2>
+                <!-- Made the text more engaging and personal -->
+                <p>Hello! I'm Manas, a second-year student at SRM University. I'm currently pursuing a Bachelor of Technology degree in Computer Science, with a specialization in Data Science. In addition to my studies, I'm also learning web development and SQL. I'm passionate about using technology to solve problems and create innovative solutions.</p>
+            </section>
+        </div>
+
+        <!-- Updated the copyright year -->
+        <footer>
+            © 2023 Manas Sharma
+        </footer>
+    </div>
+</body>
+</html>

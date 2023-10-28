@@ -1,0 +1,22 @@
+body {
+    background-color: lightgreen;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.project {
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.project img {
+    width: 50px;
+    height: 50px;
+}
+
+.project h3 {
+    color: blue;
+}

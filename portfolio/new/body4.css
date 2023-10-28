@@ -1,0 +1,12 @@
+body {
+    background-color: lightgreen;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.container h1 {
+    text-align: center;
+}

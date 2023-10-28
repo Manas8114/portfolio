@@ -1,0 +1,12 @@
+.box {
+  width: 4227px;
+  height: 2356px;
+}
+
+.box .img {
+  position: fixed;
+  width: 4227px;
+  height: 2356px;
+  top: 0;
+  left: 0;
+}

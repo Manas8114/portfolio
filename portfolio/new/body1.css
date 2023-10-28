@@ -1,0 +1,19 @@
+body {
+    background-color: lightgreen;
+}
+
+.container {
+    background-color: white;
+    border: 1px solid black;
+    width: 80%;
+    margin: auto;
+}
+
+.left, .right {
+    display: inline-block;
+    width: 45%;
+}
+
+.bottom {
+    text-align: center;
+}
