@@ -1,26 +1,474 @@
 @import "tailwindcss";
 
+/* ================================
+   GHOST OF TSUSHIMA DESIGN SYSTEM
+   Japanese Minimalism + Cinematic
+   ================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core Ink Tones */
+  --ink-black: #0D0D0D;
+  --charcoal: #1A1A1A;
+  --fog: #2A2A2A;
+  --mist: #3A3A3A;
+
+  /* Parchment Tones */
+  --parchment: #F5F0E8;
+  --parchment-light: #FAF7F2;
+  --parchment-muted: #E8E2D6;
+  --parchment-dark: #D4CFC4;
+
+  /* Accent Colors */
+  --crimson: #8B2635;
+  --crimson-light: #A63446;
+  --crimson-dark: #6B1D29;
+  --gold-muted: #C4A35A;
+  --gold-light: #D4B86A;
+
+  /* Neutrals */
+  --stone-gray: #6B6B6B;
+  --stone-light: #8B8B8B;
+  --mist-overlay: rgba(255, 255, 255, 0.08);
+  --ink-overlay: rgba(0, 0, 0, 0.6);
+
+  /* Background */
+  --background: var(--ink-black);
+  --foreground: var(--parchment);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+  --transition-cinematic: 800ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink-black: var(--ink-black);
+  --color-charcoal: var(--charcoal);
+  --color-fog: var(--fog);
+  --color-parchment: var(--parchment);
+  --color-parchment-muted: var(--parchment-muted);
+  --color-crimson: var(--crimson);
+  --color-gold-muted: var(--gold-muted);
+  --color-stone-gray: var(--stone-gray);
+  --font-serif: var(--font-noto-serif);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ================================
+   BASE STYLES
+   ================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--ink-black);
+  color: var(--parchment);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ================================
+   TYPOGRAPHY
+   ================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-noto-serif), 'Noto Serif JP', serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.heading-xl {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+}
+
+.heading-lg {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+}
+
+.heading-md {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+}
+
+.heading-sm {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 500;
+}
+
+.body-lg {
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+.body-base {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.body-sm {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.caption {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stone-gray);
+}
+
+/* Japanese characters styling */
+.kanji {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+}
+
+/* ================================
+   SECTION STYLING
+   ================================ */
+
+.section {
+  min-height: 100vh;
+  padding: 6rem 1.5rem;
+  position: relative;
+}
+
+.section-title {
+  font-family: var(--font-noto-serif), serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--crimson);
+  margin-top: 1rem;
+}
+
+.section-subtitle {
+  color: var(--stone-gray);
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+/* ================================
+   CARD STYLES
+   ================================ */
+
+.card {
+  background: var(--charcoal);
+  border: 1px solid var(--fog);
+  border-radius: 4px;
+  padding: 1.5rem;
+  transition: all var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--crimson);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ================================
+   BUTTON STYLES
+   ================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  border-radius: 2px;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--crimson);
+  color: var(--parchment);
+  border: 1px solid var(--crimson);
+}
+
+.btn-primary:hover {
+  background: var(--crimson-light);
+  border-color: var(--crimson-light);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--parchment);
+  border: 1px solid var(--fog);
+}
+
+.btn-outline:hover {
+  border-color: var(--parchment);
+  background: var(--mist-overlay);
+}
+
+/* ================================
+   INK DECORATIONS
+   ================================ */
+
+.ink-stroke {
+  position: relative;
+}
+
+.ink-stroke::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--crimson) 0%, transparent 100%);
+  opacity: 0.7;
+}
+
+.ink-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      var(--fog) 20%,
+      var(--fog) 80%,
+      transparent 100%);
+  margin: 3rem 0;
+}
+
+/* ================================
+   SKILL BAR
+   ================================ */
+
+.skill-bar {
+  height: 4px;
+  background: var(--fog);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--crimson) 0%, var(--crimson-light) 100%);
+  border-radius: 2px;
+  transition: width var(--transition-cinematic);
+}
+
+/* ================================
+   PARTICLE ANIMATION
+   ================================ */
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.6;
+  }
+
+  90% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateY(-100vh) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes drift {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(20px);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-soft {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--parchment-muted);
+  border-radius: 50%;
+  opacity: 0;
+  animation: float 15s infinite;
+}
+
+/* ================================
+   SCROLLBAR
+   ================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ink-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--fog);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--stone-gray);
+}
+
+/* ================================
+   SELECTION
+   ================================ */
+
+::selection {
+  background: var(--crimson);
+  color: var(--parchment);
+}
+
+/* ================================
+   LINK STYLES
+   ================================ */
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--crimson-light);
+}
+
+/* ================================
+   RESPONSIVE UTILITIES
+   ================================ */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 1rem;
+  }
+}
+
+/* ================================
+   GRADIENT OVERLAYS
+   ================================ */
+
+.gradient-fade-bottom {
+  background: linear-gradient(to bottom, transparent 0%, var(--ink-black) 100%);
+}
+
+.gradient-fade-top {
+  background: linear-gradient(to top, transparent 0%, var(--ink-black) 100%);
+}
+
+/* ================================
+   GLASS MORPHISM
+   ================================ */
+
+.glass {
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--fog);
+}
+
+/* ================================
+   SCROLLBAR UTILITIES
+   ================================ */
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================================
+   PERFORMANCE UTILITIES
+   ================================ */
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
